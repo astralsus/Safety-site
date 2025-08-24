@@ -1,117 +1,170 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
-}
-
-nav {
-  background: #e91e63;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
-}
-
-nav .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
+/* General Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-nav ul li {
-  margin-left: 15px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 10px;
-}
-
-nav ul li a.active, nav ul li a:hover {
-  background: #c2185b;
-  border-radius: 5px;
-}
-
-.hero {
-  background: url('https://images.unsplash.com/photo-1543269865-cbf427effbad') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-}
-
-.hero .btn {
+body {
+  line-height: 1.6;
   background: #fff;
-  color: #e91e63;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
+  color: #222;
 }
 
-.page {
-  padding: 40px 20px;
-  max-width: 800px;
+/* Navbar */
+header {
+  background: #c2185b;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
   margin: auto;
 }
 
-.btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  background: #e91e63;
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar ul li a {
   color: #fff;
-  border: none;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  color: #ffcccb;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+              url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') 
+              no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: #ff4081;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
   border-radius: 25px;
-  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  background: #c2185b;
+  background: #f50057;
 }
 
+/* Essay Section */
+.essay {
+  background: #fff7f7;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.essay h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #c2185b;
+  font-size: 2rem;
+}
+
+.essay p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.essay p.highlight {
+  font-weight: bold;
+  color: #111;
+}
+
+/* Footer */
+footer {
+  background: #c2185b;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Floating Help Button */
 .floating-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #e91e63;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  background: #f50057;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s;
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+.floating-btn:hover {
+  background: #c51162;
 }
 
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  nav ul {
+  .navbar ul {
     flex-direction: column;
+    background: #ad1457;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    display: none;
+    padding: 1rem;
   }
-  nav ul li {
-    margin: 10px 0;
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
   }
 }
